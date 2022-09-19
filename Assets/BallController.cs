@@ -29,7 +29,6 @@ public class BallController : MonoBehaviour
 
         if (other.gameObject.tag.Equals("LevelBorder"))
         {
-            Debug.Log("Ball touching level border");
             ballBody.AddForce(other.contacts[0].normal * bounciness);
         }
         
