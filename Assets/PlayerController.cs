@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D player;
+    public Rigidbody2D playerBody;
 
     public float horizontal;
     public float vertical;
@@ -11,32 +11,35 @@ public class PlayerController : MonoBehaviour
 
     public float runSpeed = 20.0f;
 
+    private Vector2 _currentInputVector;
+    private Vector2 _smoothInputVelocity;
+    [SerializeField] private float shootingPower = 20f;
+    [SerializeField] private float smoothInputSpeed = 0.2f;
+    private Collider2D _playerCollider;
+    private GameObject _ball;
+    private Collider2D _ballCollider;
+    private Rigidbody2D _ballBody;
+
     void Start()
     {
-        player = GetComponent<Rigidbody2D>();
-        LayerMask ballFieldLayerMask = LayerMask.GetMask("BallField");
+        _playerCollider = playerBody.GetComponent<Collider2D>();
         
-        LayerMask playerLayerMask = LayerMask.GetMask("PlayerField");
-        Physics2D.IgnoreLayerCollision(ballFieldLayerMask, playerLayerMask);
+        _ball = GameObject.FindGameObjectWithTag("Ball");
+        _ballCollider = _ball.GetComponent<Collider2D>();
+        _ballBody = _ball.GetComponent<Rigidbody2D>();
+        
     }
-
-
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         
         var ballFieldMask = LayerMask.NameToLayer("BallField");
         
-        Debug.Log("Ball field mask: " + ballFieldMask);
-        Debug.Log("This layer mask: " + gameObject.layer);
-        Debug.Log("Other layer mask: " + other.gameObject.layer);
         if (other.gameObject.layer == ballFieldMask)
         {
-            Debug.Log("Ignoring player collision with " + other);
-            Debug.Log(other.collider);
-            Debug.Log(other.otherCollider);
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), other.collider);
         }
+        
     }
 
     void Update()
@@ -53,6 +56,20 @@ public class PlayerController : MonoBehaviour
             vertical *= moveLimiter;
         }
 
-        player.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        Vector2 input = new Vector2(horizontal, vertical);
+        _currentInputVector = Vector2.SmoothDamp(_currentInputVector, input, ref _smoothInputVelocity, smoothInputSpeed);
+        playerBody.velocity = new Vector2(_currentInputVector.x * runSpeed, _currentInputVector.y * runSpeed);
+        playerBody.AddForce(new Vector2(1,0));
+
+        if (_playerCollider.IsTouching(_ballCollider))
+        {
+            Vector2 v = _ballBody.gameObject.transform.position - transform.position;
+            v /= v.magnitude;
+            v = v * shootingPower;
+            Debug.Log("Shooting with " + v);
+            _ballBody.AddForce(v);
+        }
+        
+        
     }
 }

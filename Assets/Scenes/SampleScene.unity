@@ -219,9 +219,10 @@ GameObject:
   - component: {fileID: 647035359}
   - component: {fileID: 647035358}
   - component: {fileID: 647035357}
+  - component: {fileID: 647035361}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,6 +331,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647035361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647035356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae34a65619d71a428be13dfb98bc51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballBody: {fileID: 0}
+  bounciness: 70
 --- !u!1 &918417339
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,11 +398,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1feecc803b55c1a4a9c156670358294d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  playerBody: {fileID: 918417340}
   horizontal: 0
   vertical: 0
   moveLimiter: 0.7
-  runSpeed: 20
+  runSpeed: 7
+  shootingPower: 300
+  smoothInputSpeed: 0.29
 --- !u!212 &918417342
 SpriteRenderer:
   m_ObjectHideFlags: 0
