@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int framesBetweenShots = 2;
     [SerializeField] private float runSpeed = 7.0f;
     [SerializeField] private float runSpeedWhileShooting = 4.0f;
+
+    public FloatEvent shootingPowerEvent; 
+
+    public float ShootingPower
+    {
+        get => shootingPower;
+        set => shootingPower = value;
+    }
+
+    public float SmoothInputSpeed
+    {
+        get => smoothInputSpeed;
+        set => smoothInputSpeed = value;
+    }
+
+    public float RunSpeed
+    {
+        get => runSpeed;
+        set => runSpeed = value;
+    }
+
+    public float RunSpeedWhileShooting
+    {
+        get => runSpeedWhileShooting;
+        set => runSpeedWhileShooting = value;
+    }
 
 
     private Vector2 _currentInputVector;
@@ -45,6 +72,11 @@ public class PlayerController : MonoBehaviour
         {
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), other.collider);
         }
+    }
+    
+    public float GetShootingPower()
+    {
+        return shootingPower;
     }
     
 
