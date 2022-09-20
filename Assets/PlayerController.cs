@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float horizontal;
     public float vertical;
-    public float moveLimiter = 0.7f;
+    [SerializeField] private float moveLimiter = 0.7f;
     [SerializeField] private float shootingPower = 300f;
     [SerializeField] private float smoothInputSpeed = 0.3f;
     [SerializeField] private int framesBetweenShots = 2;
@@ -39,6 +39,12 @@ public class PlayerController : MonoBehaviour
     {
         get => runSpeedWhileShooting;
         set => runSpeedWhileShooting = value;
+    }
+
+    public float MoveLimiter
+    {
+        get => moveLimiter;
+        set => moveLimiter = value;
     }
 
 

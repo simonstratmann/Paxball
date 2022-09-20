@@ -32,7 +32,7 @@ public class SliderController : MonoBehaviour
 
     private void UpdateText(float sliderValue)
     {
-        text.SetText(textPrefix + " (" + sliderValue + ")");
+        text.SetText(textPrefix + " (" + sliderValue.ToString("0.00") + ")");
     }
 
     // Update is called once per frame
