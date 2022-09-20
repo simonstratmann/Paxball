@@ -771,6 +771,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 123985161780591703, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: m_text
+      value: Some text
+      objectReference: {fileID: 0}
     - target: {fileID: 123985162217937775, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -785,7 +789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 123985162852900536, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 123985162852900536, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -880,8 +884,16 @@ PrefabInstance:
       value: get_ShootingPower
       objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -892,9 +904,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 918417341}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 918417341}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_ShootingPower
+      objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
@@ -908,12 +932,20 @@ PrefabInstance:
       value: set_ShootingPower
       objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
+      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 123985163382739751, guid: b07a0b1a4a271af4782aba5aca8de602, type: 3}
       propertyPath: FloatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

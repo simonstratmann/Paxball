@@ -74,11 +74,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public float GetShootingPower()
-    {
-        return shootingPower;
-    }
-    
 
     void Update()
     {

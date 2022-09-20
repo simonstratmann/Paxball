@@ -5,6 +5,7 @@ using System.Reflection;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
@@ -13,6 +14,7 @@ public class SliderController : MonoBehaviour
     public string textPrefix;
     public TMP_Text text;
     public FloatValue floatValue;
+    public UnityEvent<float> onUpdate;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,11 @@ public class SliderController : MonoBehaviour
         Debug.Log(sliderValue);
         slider.value = sliderValue;
         UpdateText(sliderValue);
-        slider.onValueChanged.AddListener(x => UpdateText(x));
+        slider.onValueChanged.AddListener(x =>
+        {
+            UpdateText(x);
+            onUpdate.Invoke(x);
+        });
     }
 
     private void UpdateText(float sliderValue)
